@@ -1,60 +1,56 @@
 package com.Entity;
 
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.boot.autoconfigure.amqp.RabbitConnectionDetails.Address;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Entity
 public class Order {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
-	private Integer userId;
-	private Integer productId;
-	private Integer quantity;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer orderId;
 
-	public Order() {
-		// TODO Auto-generated constructor stub
-	}
+	@ElementCollection
+	@JoinTable(name = "orderedProducts")
+	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
+	private Map<String, Integer> orderedProducts = new HashMap<>();
 
-	public Order(Integer userId, Integer productId, Integer quantity) {
+	@NotNull(message = "Order status can't be null")
+	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
+	private String orderStatus = OrderStatus.NotShipped.getOrderStatus();
 
-		this.userId = userId;
-		this.productId = productId;
-		this.quantity = quantity;
-	}
+	private LocalDate orderDate = LocalDate.now();
 
-	public Integer getId() {
-		return id;
-	}
+	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
+	private LocalDate deliveryDate;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+	@OneToOne
+	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
+	private Address deliveryAddress;
 
-	public Integer getUserId() {
-		return userId;
-	}
-
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
-
-	public Integer getProductId() {
-		return productId;
-	}
-
-	public void setProductId(Integer productId) {
-		this.productId = productId;
-	}
-
-	public Integer getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
-	}
-
+	@ManyToOne
+	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
+	private Customer customer;
 }
