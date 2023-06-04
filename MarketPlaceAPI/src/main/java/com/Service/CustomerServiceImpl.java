@@ -6,6 +6,7 @@ import java.util.Optional;
 import java.util.random.RandomGenerator;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.Entity.Address;
 import com.Entity.CurrentUserSession;
@@ -17,7 +18,7 @@ import com.Exception.LoginException;
 import com.Repository.AddressRepo;
 import com.Repository.CurrentUserSessionRepo;
 import com.Repository.CustomerRepo;
-
+@Service
 public class CustomerServiceImpl implements CustomerService {
 	@Autowired
 	private CustomerRepo customerrepo;

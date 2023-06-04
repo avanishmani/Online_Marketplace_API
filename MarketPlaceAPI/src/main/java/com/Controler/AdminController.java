@@ -20,77 +20,86 @@ import com.Exception.AdminException;
 import com.Exception.LoginException;
 import com.Service.AdminService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/adminController")
+@Api(value = "My API")
 public class AdminController {
 	@Autowired
 	private AdminService adminService;
-	
+
 	@PostMapping("/adminSignUp")
+	@ApiOperation(value = "Say hello", notes = "Returns a greeting")
 	public ResponseEntity<Admin> signUpAdminHandler(@Valid @RequestBody Admin admin) throws AdminException {
-		
+
 		Admin savedUser = adminService.signUpAdmin(admin);
 
 		return new ResponseEntity<Admin>(savedUser, HttpStatus.OK);
 	}
-	
+
 	@PutMapping("/updateAdmin")
-	public ResponseEntity<Admin> updateAdminDetailsHandler(@Valid @RequestBody Admin user, @RequestParam("key") String key) throws AdminException, LoginException {
+	public ResponseEntity<Admin> updateAdminDetailsHandler(@Valid @RequestBody Admin user,
+			@RequestParam("key") String key) throws AdminException, LoginException {
 
 		Admin updatedAdmin = adminService.updateAdminDetails(user, key);
-		
+
 		return new ResponseEntity<Admin>(updatedAdmin, HttpStatus.OK);
 
 	}
-	
+
 	@DeleteMapping("/deleteAdmins")
-	public ResponseEntity<Admin> deleteAdminHandler(@RequestParam("key") String key)throws AdminException, LoginException {
+	public ResponseEntity<Admin> deleteAdminHandler(@RequestParam("key") String key)
+			throws AdminException, LoginException {
 
 		Admin deletedAdmin = adminService.deleteAdminAccount(key);
 
 		return new ResponseEntity<Admin>(deletedAdmin, HttpStatus.OK);
 
 	}
-	
+
 	@GetMapping("/adminsByUserName")
-	public ResponseEntity<Admin> getAdminByUserNameHandler(@RequestParam("adminUserName") String adminUserName) throws AdminException, LoginException {
+	public ResponseEntity<Admin> getAdminByUserNameHandler(@RequestParam("adminUserName") String adminUserName)
+			throws AdminException, LoginException {
 
 		Admin admin = adminService.findByUserName(adminUserName);
 
 		return new ResponseEntity<Admin>(admin, HttpStatus.OK);
 
 	}
-	
+
 	@GetMapping("/adminsByAdminId")
-	public ResponseEntity<Admin> getAdminByAdminIdHandler(@RequestParam("adminId") Integer adminId) throws AdminException, LoginException {
+	public ResponseEntity<Admin> getAdminByAdminIdHandler(@RequestParam("adminId") Integer adminId)
+			throws AdminException, LoginException {
 
 		Admin admin = adminService.findByAdminId(adminId);
 
 		return new ResponseEntity<Admin>(admin, HttpStatus.OK);
 
 	}
-	
+
 	@GetMapping("/admins")
-	public ResponseEntity<List<Admin>> findAllAdminsHandler() throws AdminException{
+	public ResponseEntity<List<Admin>> findAllAdminsHandler() throws AdminException {
 
 		List<Admin> allAdmin = adminService.findAllUsers();
 
 		return new ResponseEntity<List<Admin>>(allAdmin, HttpStatus.OK);
 
 	}
-	
+
 	@PostMapping("/loginAdmin")
-	public ResponseEntity<CurrentUserSession> loginAdminHandler(@Valid @RequestBody AdminDto admin) throws LoginException {
+	public ResponseEntity<CurrentUserSession> loginAdminHandler(@Valid @RequestBody AdminDto admin)
+			throws LoginException {
 
 		CurrentUserSession cus = adminService.loginAdmin(admin);
 
 		return new ResponseEntity<CurrentUserSession>(cus, HttpStatus.OK);
 
 	}
-	
+
 	@PostMapping("/logoutAdmin")
 	public ResponseEntity<String> logoutAdminHandler(@RequestParam("key") String key) throws LoginException {
 
