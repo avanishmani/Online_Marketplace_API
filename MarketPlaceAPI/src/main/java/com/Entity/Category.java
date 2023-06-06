@@ -27,11 +27,11 @@ public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer categoryId;
-
+	
 	@Size(min = 2, max = 20, message = "Length of category should not be more than 20 characters and less than 2 characters")
 	private String categoryName;
-
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "category", fetch = FetchType.EAGER)
+	
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "category",fetch = FetchType.EAGER)
 	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
 	private List<Product> productList = new ArrayList<>();
 }

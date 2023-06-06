@@ -20,20 +20,18 @@ import com.Exception.AdminException;
 import com.Exception.LoginException;
 import com.Service.AdminService;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/adminController")
-@Api(value = "My API")
+
 public class AdminController {
 	@Autowired
 	private AdminService adminService;
 
 	@PostMapping("/adminSignUp")
-	@ApiOperation(value = "Say hello", notes = "Returns a greeting")
+
 	public ResponseEntity<Admin> signUpAdminHandler(@Valid @RequestBody Admin admin) throws AdminException {
 
 		Admin savedUser = adminService.signUpAdmin(admin);

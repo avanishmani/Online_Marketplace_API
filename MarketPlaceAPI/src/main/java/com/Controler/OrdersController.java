@@ -19,8 +19,7 @@ import com.Exception.CustomerException;
 import com.Exception.LoginException;
 import com.Exception.OrderException;
 import com.Exception.ProductException;
-
-import com.Service.OrdersServices;
+import com.Service.OrderService;
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
@@ -28,7 +27,7 @@ import io.swagger.v3.oas.annotations.parameters.RequestBody;
 @RequestMapping("/OrderController")
 public class OrdersController {
 	@Autowired
-	private OrdersServices Orderervices;
+	private OrderService Orderervices;
 
 	@PutMapping("/placeOrder")
 	public ResponseEntity<Order> placeOrderHandler(@RequestBody Order Order, @RequestParam Integer addressId,
@@ -54,7 +53,7 @@ public class OrdersController {
 	public ResponseEntity<List<Order>> findAllOrderHandler(@RequestParam String key)
 			throws OrderException, CustomerException, LoginException {
 
-		List<Order> Order = Orderervices.getAllOrders(key);
+		List<Order> Order = Orderervices.getAllOrder(key);
 
 		return new ResponseEntity<List<Order>>(Order, HttpStatus.OK);
 
@@ -64,7 +63,7 @@ public class OrdersController {
 	public ResponseEntity<List<Order>> findAllOrderByCustomerIDHandler(@RequestParam String key)
 			throws OrderException, CustomerException, LoginException {
 
-		List<Order> Order = Orderervices.getAllOrdersByCustomer(key);
+		List<Order> Order = Orderervices.getAllOrderByCustomer(key);
 
 		return new ResponseEntity<List<Order>>(Order, HttpStatus.OK);
 
@@ -118,7 +117,7 @@ public class OrdersController {
 	public ResponseEntity<List<Order>> cancelOrderByOrderDateHandler(@RequestParam("date") String date,
 			@RequestParam String key) throws ProductException, OrderException, CustomerException, LoginException {
 
-		List<Order> cancelledOrder = Orderervices.cancelOrdersByOrderDate(LocalDate.parse(date), key);
+		List<Order> cancelledOrder = Orderervices.cancelOrderByOrderDate(LocalDate.parse(date), key);
 
 		return new ResponseEntity<List<Order>>(cancelledOrder, HttpStatus.OK);
 	}

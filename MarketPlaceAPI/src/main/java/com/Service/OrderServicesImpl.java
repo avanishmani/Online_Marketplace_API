@@ -28,7 +28,7 @@ import com.Repository.OrderRepository;
 import com.Repository.ProductRepository;
 
 @Service
-public class OrderServicesImpl implements OrdersServices {
+public class OrderServicesImpl implements OrderService {
 	@Autowired
 	private CartRepo cartRepo;
 
@@ -138,7 +138,7 @@ public class OrderServicesImpl implements OrdersServices {
 	}
 
 	@Override
-	public List<Order> getAllOrders(String key) throws OrderException, CustomerException, LoginException {
+	public List<Order> getAllOrder(String key) throws OrderException, CustomerException, LoginException {
 		CurrentUserSession loggedInUser = currentUserSessionRepo.findByUniqueID(key);
 
 		if (loggedInUser == null) {
@@ -157,7 +157,7 @@ public class OrderServicesImpl implements OrdersServices {
 	}
 
 	@Override
-	public List<Order> getAllOrdersByCustomer(String key) throws OrderException, CustomerException, LoginException {
+	public List<Order> getAllOrderByCustomer(String key) throws OrderException, CustomerException, LoginException {
 		CurrentUserSession loggedInUser = currentUserSessionRepo.findByUniqueID(key);
 
 		if (loggedInUser == null) {
@@ -317,7 +317,7 @@ public class OrderServicesImpl implements OrdersServices {
 	}
 
 	@Override
-	public List<Order> cancelOrdersByOrderDate(LocalDate date, String key)
+	public List<Order> cancelOrderByOrderDate(LocalDate date, String key)
 			throws ProductException, OrderException, CustomerException, LoginException {
 		CurrentUserSession loggedInUser = currentUserSessionRepo.findByUniqueID(key);
 

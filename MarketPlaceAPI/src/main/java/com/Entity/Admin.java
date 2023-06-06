@@ -41,4 +41,5 @@ public class Admin {
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	private String adminPassword;
 
+
 }
