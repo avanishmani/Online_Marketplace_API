@@ -25,3 +25,33 @@ This API allows users to perform CRUD operations on Product entities and place a
   - Get all orders for a specific user
   - Get all orders for a specific product
 - Implement validation and error handling for the API endpoints. For example, handle cases where a product is out of stock or a user tries to place an order with an invalid quantity.
+
+
+# Modules 
+
+- Admin Module  
+- Category Module
+- Product Module
+- Customer Module
+- Address Module
+- Cart Module
+- Orders Module
+
+# Technology and Tools used 
+
+- Java
+- MySQL
+- Spring Boot
+- Spring Data JPA
+- Hibernate
+- lombok
+- Swagger
+- Maven
+- Git & GitHub
+- Spring tool suite
+
+# Features (http://localhost:8888/swagger-ui/#/)
+
+## Author
+
+- [Avanish Mani Tripathi](https://github.com/avanishmani)
