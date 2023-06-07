@@ -72,6 +72,21 @@ This API allows users to perform CRUD operations on Product entities and place a
 
 ![04](https://user-images.githubusercontent.com/103619788/220287227-d7603a48-2d88-4c99-954c-0d8144457b03.jpg)
 
+### Customer Features 
+
+- Sign-Up Customer Handler (http://localhost:8888/customerController/customerSignUp)
+- Log-in Customer Handler (http://localhost:8888/customerController/loginCustomer)
+- Log-out Customer Handler (http://localhost:8888/customerController/logoutCustomer?key={key})
+- Add Address Handler (http://localhost:8888/customerController/addAddress?key={key})
+- Find Customer By Customer-Id Handler (http://localhost:8888/customerController/customerByCustomerId?customerId={customerId})
+- Find Customer By User-Name Handler (http://localhost:8888/customerController/customerByUserName?customerUserName={customerUserName})
+- Find All Customers Handler (http://localhost:8888/customerController/customers)
+- Update Customer Details Handler (http://localhost:8888/customerController/updateCustomer?key={key})
+- Delete Address Handler (http://localhost:8888/customerController/deleteAddress?addressId={addressId}&key={key})
+- Delete Customer Handler (http://localhost:8888/customerController/deleteCustomer?key={key})
+
+![02](https://user-images.githubusercontent.com/103619788/220293152-c4b2f41b-6318-403d-a5a1-edae4e490484.jpg)
+
 # Technology and Tools used 
 
 - Java
