@@ -61,6 +61,16 @@ This API allows users to perform CRUD operations on Product entities and place a
 
 ![03](https://user-images.githubusercontent.com/103619788/220283745-11c5ca3a-1398-469b-be67-07a713ef6d97.jpg)
 
+### Product Features 
+
+- Add Product Handler (http://localhost:8888/productController/addProduct?categoryName={categoryName}&key={KEY})
+- Find Product By Category Name Handler(http://localhost:8888/productController/productByCategoryName?categoryName={categoryName})
+- Find Product By Product Name Handler(http://localhost:8888/productController/productByProductName?productName={productName})
+- Find All Product Handler(http://localhost:8888/productController/Products)
+- Update Product Details Handler(http://localhost:8888/productController/updateProduct?key={KEY})
+- Delete Product Handler(http://localhost:8888/productController/deleteProduct?productId={productId}&categoryName={categoryName}&key={KEY})
+
+![04](https://user-images.githubusercontent.com/103619788/220287227-d7603a48-2d88-4c99-954c-0d8144457b03.jpg)
 
 # Technology and Tools used 
 
