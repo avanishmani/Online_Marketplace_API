@@ -87,6 +87,16 @@ This API allows users to perform CRUD operations on Product entities and place a
 
 ![02](https://user-images.githubusercontent.com/103619788/220293152-c4b2f41b-6318-403d-a5a1-edae4e490484.jpg)
 
+### Cart Features 
+
+- Add Product To Cart Handler (http://localhost:8888/cartController/addProductToCart?productName={productName}&quantity={quantity}&key={key})
+- Update Product Quantity Handler (http://localhost:8888/cartController/updateProductQuantity?productName={productName}&quantity={quantity}&key={key})
+- Find All Products In Cart Handler (http://localhost:8888/cartController/getAllProductsInCart?key={key})
+- Remove Product From Cart Handler (http://localhost:8888/cartController/deleteProductFromCart?productName={productName}&key={key})
+- Remove All Products From Cart Handler (http://localhost:8888/cartController/removeAllProductsFromCart?key={key})
+
+![05](https://user-images.githubusercontent.com/103619788/220913053-7a8f920d-e450-487e-9083-8a72692189d7.jpg)
+
 # Technology and Tools used 
 
 - Java
