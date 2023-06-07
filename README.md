@@ -37,6 +37,20 @@ This API allows users to perform CRUD operations on Product entities and place a
 - Cart Module
 - Orders Module
 
+
+### Admin Features 
+
+- Sign-Up Admin Handler (http://localhost:8888/adminController/adminSignUp)
+- Log-in Admin Handler (http://localhost:8888/adminController/loginAdmin)
+- Log-out Admin Handler (http://localhost:8888/adminController/logoutAdmin?key={KEY})
+- Find All Admins Handler (http://localhost:8888/adminController/admins)
+- Find Admin By Admin Id Handler (http://localhost:8888/adminController/adminsByAdminId?adminId={adminId})
+- Find Admin By User-Name Handler (http://localhost:8888/adminController/adminsByUserName?adminUserName={adminUserName})
+- Update Admin Details Handler (http://localhost:8888/adminController/updateAdmin?key={KEY})
+- Delete Admin Handler (http://localhost:8888/adminController/deleteAdmins?key={KEY})
+
+![01](https://user-images.githubusercontent.com/103619788/220114469-601fbb07-598b-44ed-865d-d1becb749b9c.jpg)
+
 # Technology and Tools used 
 
 - Java
