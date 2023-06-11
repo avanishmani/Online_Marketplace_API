@@ -124,7 +124,27 @@ This API allows users to perform CRUD operations on Product entities and place a
 - Git & GitHub
 - Spring tool suite
 
+
+
+# Entity Relationship Diagram (ERD)
+![123](https://user-images.githubusercontent.com/103619788/219714882-03e5f097-63a4-4ab8-9d8b-ce2842e6eff2.jpg)
+
+## Installation & Run
+
+* Before running the API server, you should update the database config inside the [application.properties]([https://github.com/avanishmani/Online_Marketplace_API/edit/main/resources/application.properties) file. 
+* Update the port number, username and password as per your local database config.
+
+```
+    server.port=8888
+    spring.datasource.url=jdbc:mysql://localhost:3306/saveright;
+    spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+    spring.datasource.username=root
+    spring.datasource.password=root
+```
+
+
 # Features (http://localhost:8888/swagger-ui/#/)
+
 
 ## Author
 
